@@ -1,4 +1,4 @@
-interface Impression {
+export interface Impression {
   id: string;
   publisherId: string;
   slotSize: '300x250' | '728x90' | '160x600';

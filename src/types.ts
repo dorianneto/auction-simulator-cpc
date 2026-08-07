@@ -7,12 +7,12 @@ export interface Impression {
   floorPrice: number; // Floor in CPC terms (minimum $ per click)
 }
 
-interface DSPCPCBidResponse {
+export interface DSPCPCBidResponse {
   cpcBid: number; // Cost per click, not CPM
   dspId: string;
 }
 
-interface DSP {
+export interface DSP {
   id: string;
   name: string;
   budget: number;

@@ -1,4 +1,7 @@
-import type { Impression } from './types.js';
+import type { ClickEvent, Impression } from './types.js';
+
+// Mock storage for tracking clicks by IP/user agent (simple version)
+export const clickHistory: Map<string, ClickEvent[]> = new Map();
 
 export function predictCTR(impression: Impression): number {
   let baseCTR = 0.02;
@@ -13,7 +16,10 @@ export function predictCTR(impression: Impression): number {
     baseCTR += 0.015; // General: 3.5% CTR (low intent)
   }
 
-  if (impression.location === 'New York' || impression.location === 'San Francisco') {
+  if (
+    impression.location === 'New York' ||
+    impression.location === 'San Francisco'
+  ) {
     baseCTR += 0.01; // Major markets: 1% boost
   }
 

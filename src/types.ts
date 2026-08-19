@@ -23,7 +23,7 @@ export interface DSP {
   getCPCBid(impression: Impression): Promise<DSPCPCBidResponse | null>;
 }
 
-interface CPCBid {
+export interface CPCBid {
   dspId: string;
   dspName: string;
   cpcBid: number;
@@ -31,7 +31,7 @@ interface CPCBid {
   expectedCPM: number; // For auction comparison
 }
 
-interface ClickEvent {
+export interface ClickEvent {
   id: string;
   impressionId: string;
   dspId: string;
@@ -43,7 +43,7 @@ interface ClickEvent {
   fraudReasons: string[];
 }
 
-interface AuctionResult {
+export interface AuctionResult {
   impression: Impression;
   predictedCTR: number;
   winnerDspId: string | null;
@@ -56,13 +56,4 @@ interface AuctionResult {
   chargeAmount: number; // 0 if no click or fraud detected
   revenue: number; // Negative if refunded due to fraud dispute
   timestamp: number;
-}
-
-interface FraudDispute {
-  clickId: string;
-  impressionId: string;
-  dspId: string;
-  reason: string;
-  refundAmount: number;
-  status: 'pending' | 'approved' | 'rejected';
 }
